@@ -17,6 +17,11 @@ ES6 so it's easily to maintenance.
 
 And actually... I don't remember all.
 
+**TODO:**
+[] Create built file instead of using direct babel compile.
+[] Recheck the error handling & error emit.
+[] Bug fixes.
+
 ### Installation
 
 Install the package
@@ -68,7 +73,6 @@ This will set default UTC Offset to schedules. If not set, OS timezone's offset 
 
 #### HUBOT_SCHEDULE_EMIT_ERROR=0
 Emit the error message using robot.emit (not sending message outside) or send as messages.
-
 
 
 ### Copyright and license
