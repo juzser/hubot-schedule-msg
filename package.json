@@ -1,0 +1,40 @@
+{
+  "name": "hubot-schedule-msg",
+  "description": "Message & api hook scheduler for hubot (tested on RocketChat)",
+  "version": "0.7.5",
+  "author": "juzser",
+  "homepage": "https://github.com/JuzSer/hubot-schedule-msg",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JuzSer/hubot-schedule-msg.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "schedule",
+    "cron",
+    "hook",
+    "remind",
+    "rocket.chat"
+  ],
+  "dependencies": {
+    "node-schedule": "~1.0.0",
+    "cron": "~1.7.0",
+    "cron-parser": "~1.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/JuzSer/hubot-schedule-msg/issues"
+  },
+  "devDependencies": {
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "hubot": "^2.17.0"
+  },
+  "scripts": {
+    "test": "hubot schedule list"
+  }
+}
