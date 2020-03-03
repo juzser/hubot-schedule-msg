@@ -37,7 +37,7 @@
     "hubot": "^3.3.2"
   },
   "scripts": {
-    "build": "babel src -d dist/scripts/ && babel lib -d dist/lib",
+    "build": "babel scripts/main.js -d dist/ && babel lib -d dist/lib",
     "test": "hubot schedule list"
   }
 }
