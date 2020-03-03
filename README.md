@@ -1,6 +1,6 @@
 # hubot-schedule
 
-Inpired & based on: [hubot-schedule](https://github.com/matsukaz/hubot-schedule)
+Inspired by & based on: [hubot-schedule](https://github.com/matsukaz/hubot-schedule)
 But I think it's BETTER!
 
 I build this to fit with my rocket.chat, but I guess it will work (with some bugs) on other platform.
@@ -13,6 +13,7 @@ ES6 so it's easily to maintenance.
 - Schedule list only show to author not others, hence you can only see your schedules.
 - Free format for date, it's impossible to cover all cases, but some.
 - Receive message as chain, so you can use this to do other things with bot (My `hubot-hook` for example)
+- Each user has only 500 schedules per one.
 
 And actually... I don't remember all.
 
@@ -65,7 +66,7 @@ Enable to deny schedule control from other rooms.
 #### HUBOT_SCHEDULE_UTC_OFFSET='+00:00'
 This will set default UTC Offset to schedules. If not set, OS timezone's offset would be used.
 
-#### HUBOT_SCHEDULE_EMIT_ERROR=0,
+#### HUBOT_SCHEDULE_EMIT_ERROR=0
 Emit the error message using robot.emit (not sending message outside) or send as messages.
 
 
