@@ -31,13 +31,14 @@
     "babel-core": "^6.26.3",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "hubot": "^3.3.2"
   },
   "scripts": {
-    "build": "babel scripts/main.js -d dist/ && babel lib -d dist/lib",
+    "build": "babel scripts/main.js lib/* -d dist/ --presets=env --plugins=add-module-exports,transform-object-rest-spread",
     "test": "hubot schedule list"
   }
 }
