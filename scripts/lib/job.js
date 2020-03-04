@@ -132,3 +132,4 @@ var Job = function () {
 }();
 
 exports.default = Job;
+module.exports = exports.default;

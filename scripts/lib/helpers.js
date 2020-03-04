@@ -126,3 +126,4 @@ exports.default = {
   getJobId: getJobId,
   getJobByUser: getJobByUser
 };
+module.exports = exports.default;

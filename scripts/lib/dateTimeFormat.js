@@ -184,3 +184,4 @@ var dateFormat = function dateFormat(dateArr) {
 exports.default = {
   dateParse: dateParse
 };
+module.exports = exports.default;
