@@ -4,7 +4,7 @@
   "version": "0.1.3",
   "author": "juzser",
   "homepage": "https://github.com/JuzSer/hubot-schedule-msg",
-  "main": "./index.js",
+  "main": "scripts/main.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/JuzSer/hubot-schedule-msg.git"
@@ -21,20 +21,23 @@
   "dependencies": {
     "cron": "~1.7.0",
     "cron-parser": "~1.0.1",
-    "node-schedule": "~1.0.0",
-    "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.26.0"
+    "node-schedule": "~1.0.0"
   },
   "bugs": {
     "url": "https://github.com/JuzSer/hubot-schedule-msg/issues"
   },
   "devDependencies": {
-    "hubot": "^3.3.2"
+    "hubot": "^3.3.2",
+    "babel": "6.5.2",
+    "babel-cli": "6.5.1",
+    "babel-preset-es2015": "6.5.0",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0"
   },
   "scripts": {
-    "test": "hubot schedule list"
+    "test": "hubot schedule list",
+    "build": "babel src --presets es2015 --out-dir ./scripts"
   }
 }

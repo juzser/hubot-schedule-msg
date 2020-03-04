@@ -40,7 +40,7 @@ const dateParse = (timeSource) => {
   });
 
   const dateFormated = dateFormat(dateArr);
-  const dateTime = { ...timeFormated, ...dateFormated };
+  const dateTime = Object.assign({}, timeFormated, dateFormated);
 
   const parseDate = new Date(
     dateTime.year,
