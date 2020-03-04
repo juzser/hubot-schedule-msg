@@ -1,8 +1,28 @@
 'use strict';
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
+var _entries = require('babel-runtime/core-js/object/entries');
+
+var _entries2 = _interopRequireDefault(_entries);
+
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _job2 = require('./lib/job');
 
@@ -18,20 +38,16 @@ var _dateTimeFormat = require('./lib/dateTimeFormat');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-require('babel-polyfill');
-
 var mainRobot = function () {
   function mainRobot(robot) {
-    _classCallCheck(this, mainRobot);
+    (0, _classCallCheck3.default)(this, mainRobot);
 
     this.robot = robot;
     this.jobs = {};
     this.isCronPattern = false;
   }
 
-  _createClass(mainRobot, [{
+  (0, _createClass3.default)(mainRobot, [{
     key: 'initial',
     value: function initial() {
       var _this = this;
@@ -98,8 +114,8 @@ var mainRobot = function () {
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = Object.entries(userJobs)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var _step$value = _slicedToArray(_step.value, 2),
+        for (var _iterator = (0, _getIterator3.default)((0, _entries2.default)(userJobs)), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var _step$value = (0, _slicedToArray3.default)(_step.value, 2),
               key = _step$value[0],
               job = _step$value[1];
 
@@ -126,7 +142,7 @@ var mainRobot = function () {
         }
       }
 
-      var dateJobsSorted = Object.keys(dateJobs).sort(function (a, b) {
+      var dateJobsSorted = (0, _keys2.default)(dateJobs).sort(function (a, b) {
         return new Date(dateJobs[a].timePattern) - new Date(dateJobs[b].timePattern);
       });
 
@@ -136,7 +152,7 @@ var mainRobot = function () {
       var _iteratorError2 = undefined;
 
       try {
-        for (var _iterator2 = dateJobsSorted[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        for (var _iterator2 = (0, _getIterator3.default)(dateJobsSorted), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
           var id = _step2.value;
 
           var job = dateJobs[id];
@@ -163,8 +179,8 @@ var mainRobot = function () {
       var _iteratorError3 = undefined;
 
       try {
-        for (var _iterator3 = Object.entries(cronJobs)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          var _step3$value = _slicedToArray(_step3.value, 2),
+        for (var _iterator3 = (0, _getIterator3.default)((0, _entries2.default)(cronJobs)), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+          var _step3$value = (0, _slicedToArray3.default)(_step3.value, 2),
               _id = _step3$value[0],
               _job = _step3$value[1];
 
@@ -332,8 +348,8 @@ var mainRobot = function () {
       var _iteratorError4 = undefined;
 
       try {
-        for (var _iterator4 = Object.entries(nonCachedSchedules)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-          var _step4$value = _slicedToArray(_step4.value, 2),
+        for (var _iterator4 = (0, _getIterator3.default)((0, _entries2.default)(nonCachedSchedules)), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+          var _step4$value = (0, _slicedToArray3.default)(_step4.value, 2),
               id = _step4$value[0],
               job = _step4$value[1];
 
@@ -363,8 +379,8 @@ var mainRobot = function () {
       var _iteratorError5 = undefined;
 
       try {
-        for (var _iterator5 = Object.entries(nonStoredSchedules)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-          var _step5$value = _slicedToArray(_step5.value, 2),
+        for (var _iterator5 = (0, _getIterator3.default)((0, _entries2.default)(nonStoredSchedules)), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          var _step5$value = (0, _slicedToArray3.default)(_step5.value, 2),
               id = _step5$value[0],
               job = _step5$value[1];
 
@@ -432,7 +448,6 @@ var mainRobot = function () {
       return this.robot.send(envelope, e);
     }
   }]);
-
   return mainRobot;
 }();
 

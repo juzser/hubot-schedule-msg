@@ -4,9 +4,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _nodeSchedule = require('node-schedule');
 
@@ -24,11 +32,9 @@ var _config = require('./config');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 var Job = function () {
   function Job(jobId, time, timeOrigin, user, room, message, callback) {
-    _classCallCheck(this, Job);
+    (0, _classCallCheck3.default)(this, Job);
 
     this.id = jobId;
     this.timePattern = time;
@@ -37,7 +43,7 @@ var Job = function () {
     if (_helpers2.default.isTimeCronPattern(time)) {
       // get cron pattern & timezone
       var _timePattern$split = this.timePattern.split(','),
-          _timePattern$split2 = _slicedToArray(_timePattern$split, 2),
+          _timePattern$split2 = (0, _slicedToArray3.default)(_timePattern$split, 2),
           pattern = _timePattern$split2[0],
           timezone = _timePattern$split2[1];
 
@@ -65,13 +71,13 @@ var Job = function () {
     this.job;
   }
 
-  _createClass(Job, [{
+  (0, _createClass3.default)(Job, [{
     key: 'start',
     value: function start(robot) {
       // Cron Pattern
       if (_helpers2.default.isTimeCronPattern(this.timePattern)) {
         var _timePattern$split3 = this.timePattern.split(','),
-            _timePattern$split4 = _slicedToArray(_timePattern$split3, 2),
+            _timePattern$split4 = (0, _slicedToArray3.default)(_timePattern$split3, 2),
             pattern = _timePattern$split4[0],
             timezone = _timePattern$split4[1]; // get cron pattern & timezone
 
@@ -127,7 +133,6 @@ var Job = function () {
       return [this.timePattern, this.user, this.message];
     }
   }]);
-
   return Job;
 }();
 

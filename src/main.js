@@ -1,5 +1,3 @@
-require('babel-polyfill');
-
 import Job from './lib/job';
 import { AppConfig, envConfig } from './lib/config';
 import Helper from './lib/helpers';

@@ -4,7 +4,25 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
+
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
+var _entries = require('babel-runtime/core-js/object/entries');
+
+var _entries2 = _interopRequireDefault(_entries);
+
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _toArray2 = require('babel-runtime/helpers/toArray');
+
+var _toArray3 = _interopRequireDefault(_toArray2);
 
 var _cronParser = require('cron-parser');
 
@@ -13,8 +31,6 @@ var _cronParser2 = _interopRequireDefault(_cronParser);
 var _config = require('./config');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 // get room name by user's message data
 var getRoomName = function getRoomName(robot, user) {
@@ -40,13 +56,13 @@ var isTimeCronPattern = function isTimeCronPattern(time) {
   var timeReplaced = time.toString().replace(/\./gi, '*');
 
   var _timeReplaced$split = timeReplaced.split(','),
-      _timeReplaced$split2 = _toArray(_timeReplaced$split),
+      _timeReplaced$split2 = (0, _toArray3.default)(_timeReplaced$split),
       pattern = _timeReplaced$split2[0],
       timezone = _timeReplaced$split2.slice(1);
 
   var parser = _cronParser2.default.parseString(pattern);
 
-  return !Object.keys(parser.errors).length;
+  return !(0, _keys2.default)(parser.errors).length;
 };
 
 var compareObj = function compareObj(source, target) {
@@ -60,8 +76,8 @@ var compareObj = function compareObj(source, target) {
   var _iteratorError = undefined;
 
   try {
-    for (var _iterator = Object.entries(sourceObj)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var _step$value = _slicedToArray(_step.value, 2),
+    for (var _iterator = (0, _getIterator3.default)((0, _entries2.default)(sourceObj)), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var _step$value = (0, _slicedToArray3.default)(_step.value, 2),
           key = _step$value[0],
           value = _step$value[1];
 
@@ -107,7 +123,7 @@ var getJobId = function getJobId(id) {
 var getJobByUser = function getJobByUser(jobs, userId) {
   var results = {};
   if (jobs) {
-    Object.keys(jobs).map(function (i) {
+    (0, _keys2.default)(jobs).map(function (i) {
       if (userId === getJobId(i)[1]) {
         results[i] = jobs[i];
       }

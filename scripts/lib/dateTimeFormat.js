@@ -4,9 +4,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
+
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
 
 var _config = require('./config');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var weekdayShort = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 var weekdayFull = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -48,7 +56,7 @@ var dateParse = function dateParse(timeSource) {
   });
 
   var dateFormated = dateFormat(dateArr);
-  var dateTime = Object.assign({}, timeFormated, dateFormated);
+  var dateTime = (0, _assign2.default)({}, timeFormated, dateFormated);
 
   var parseDate = new Date(dateTime.year, dateTime.month, dateTime.day, dateTime.hour || 9, dateTime.minute || 0, dateTime.second || 0);
 
@@ -58,7 +66,7 @@ var dateParse = function dateParse(timeSource) {
 // Get time object
 var timeFormat = function timeFormat(time, tz) {
   var _time$replace$split = time.replace(/(\s*(?:am|pm))/gi, '').split(':'),
-      _time$replace$split2 = _slicedToArray(_time$replace$split, 3),
+      _time$replace$split2 = (0, _slicedToArray3.default)(_time$replace$split, 3),
       hour = _time$replace$split2[0],
       minute = _time$replace$split2[1],
       second = _time$replace$split2[2];
@@ -76,7 +84,7 @@ var timeFormat = function timeFormat(time, tz) {
   // Resolve timezone
 
   var _tz$split = tz.split(':'),
-      _tz$split2 = _slicedToArray(_tz$split, 2),
+      _tz$split2 = (0, _slicedToArray3.default)(_tz$split, 2),
       tzHour = _tz$split2[0],
       tzMinute = _tz$split2[1];
 
@@ -104,13 +112,13 @@ var dateFormat = function dateFormat(dateArr) {
     var datePieces = dateArr[0].indexOf('/') > -1 ? dateArr[0].split('/') : dateArr[0].split('-');
 
     if (datePieces[0].length === 4) {
-      var _datePieces = _slicedToArray(datePieces, 3);
+      var _datePieces = (0, _slicedToArray3.default)(datePieces, 3);
 
       year = _datePieces[0];
       month = _datePieces[1];
       day = _datePieces[2];
     } else {
-      var _datePieces2 = _slicedToArray(datePieces, 3);
+      var _datePieces2 = (0, _slicedToArray3.default)(datePieces, 3);
 
       day = _datePieces2[0];
       month = _datePieces2[1];
