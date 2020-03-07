@@ -18,23 +18,34 @@ ES6 so it's easily to maintenance.
 And actually... I don't remember all.
 
 **TODO:**
-[] Create built file instead of using direct babel compile.
 [] Recheck the error handling & error emit.
-[] Bug fixes.
+[x] Bug fixes.
 
 ### Installation
 
-Install the package
+Install [hubot-rocketchat-boilerplate](https://github.com/RocketChat/hubot-rocketchat-boilerplate)
+
+Add these packages to dependencies in `package.json`
 ```
-npm install hubot-schedule-msg
+  "cron": "~1.7.0",
+  "cron-parser": "~1.0.1",
+  "node-schedule": "~1.0.0",
 ```
 
-Add `hubot-schedule-msg` to `external-scripts.json`.
+Add these packages to devDependencies in `package.json`
+```
+  "babel-plugin-add-module-exports": "^1.0.2",
+  "babel-plugin-transform-object-rest-spread": "^6.26.0",
+  "babel-polyfill": "^6.26.0",
+  "babel-preset-es2015": "^6.24.1",
+  "babel-register": "^6.26.0",
+```
 
-```
-> cat external-scripts.json
-> ["hubot-schedule"]
-```
+Copy `.babelrc` file & `lib` directory in `src` to your hubot boilerplate directory.
+Copy all files in `scripts` directory to your hubot scripts directory.
+Update your `.env` file if needed.
+
+Restart hubot. Done.
 
 ### Usage
 
